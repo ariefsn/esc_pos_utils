@@ -7,8 +7,11 @@
  */
 
 enum PosAlign { left, center, right }
+
 enum PosCutMode { full, partial }
+
 enum PosFontType { fontA, fontB }
+
 enum PosDrawer { pin2, pin5 }
 
 /// Choose image printing function
@@ -37,8 +40,11 @@ class PaperSize {
   final int value;
   static const mm58 = PaperSize._internal(1);
   static const mm80 = PaperSize._internal(2);
+  static const mm100 = PaperSize._internal(3);
 
-  int get width => value == PaperSize.mm58.value ? 372 : 558;
+  static const Map<int, int> _paperWidth = {1: 372, 2: 558, 3: 697};
+
+  int get width => _paperWidth[value]!;
 }
 
 class PosBeepDuration {
